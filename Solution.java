@@ -1,49 +1,31 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
+public class Solution {
 
-
-class Solution{
-    
-    static String whoCanFitTheNumber(String numString)
-    {
-        String answer = "";
-        try{
-            long num = Long.parseLong(numString);
-            answer = numString + " can be fitted in:\n";
-            if((num<=Byte.MAX_VALUE) && (num>=Byte.MIN_VALUE)){
-                answer = answer.concat("* byte\n* short\n* int\n* long");
-            }else if((num <= Short.MAX_VALUE) && (num >= Short.MIN_VALUE)){
-                answer = answer.concat("* short\n* int\n* long");
-            }else if((num <= Integer.MAX_VALUE) && (num >= Integer.MIN_VALUE)){
-                    answer = answer.concat("* int\n* long");
-            }else{
-                    answer = answer.concat("* long");
-            }
-        }catch (NumberFormatException e){
-            answer = numString+" can't be fitted anywhere.";
+static int B,H;
+    static boolean flag = true;
+    static {
+        
+        Scanner sc = new Scanner(System.in);
+        B = sc.nextInt();
+        H = sc.nextInt();
+        if(B<=0 || H<=0){
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+            flag = false;
         }
-        return answer;
     }
-    
-    public static void main(String []argh)
-    {
 
+public static void main(String[] args){
+		if(flag){
+			int area=B*H;
+			System.out.print(area);
+		}
+		
+	}//end of main
 
- /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution.
-        */
-        Scanner scanner = new Scanner(System.in);
-        int numTestCases = scanner.nextInt() ;
-        scanner.nextLine();
-        for(int i=0; i<numTestCases;i++){
-            String numString = scanner.nextLine();
-            System.out.println(whoCanFitTheNumber(numString));
-        }
-       
-
-       
-    }
-}
-
-
+}//end of class
 
